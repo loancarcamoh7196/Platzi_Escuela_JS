@@ -1,19 +1,32 @@
 import React from 'react';
 import '../assets/styles/components/Header.scss';
 
+/**
+ * Constantes para texto elementos html
+ */
+const headerLogoLandingPageURL = "../assets/logo-platzi-video-BW2.png";
+const headerLogoLandingPageAlt = "Video-Logo";
+const headerUserLandingPageURL = "../assets/user-icon.png";
+const headerMenuTitle = "Perfil";
+const headerUserLandingPageAlt = "Usuario ;)";
+const headerMenuAccountURL = "#";
+const headerMenuAccountText = "Cuenta";
+const headerMenuSessionURL = "#";
+const headerMenuSessionText = "Cerrar Sesión";
+
 
 const Header = () => (
     <header className="header">
-        <img className="header__img" src="../assets/logo-platzi-video-BW2.png" alt="Platzi-Video-Logo" />
+        <img className="header__img" src={ headerLogoLandingPageURL } alt={ headerLogoLandingPageAlt } />
         <div className="header__menu">
             <div className="header__menu--profile">
-            <img src="../assets/user-icon.png" alt="User" />
-            <p>Perfil</p>
+            <img src={ headerUserLandingPageURL } alt={ headerUserLandingPageAlt } />
+            <p>{ headerMenuTitle }</p>
             </div>
 
             <ul>
-            <li><a href="/">Cuenta</a></li>
-            <li><a href="/">Cerrar Sesion</a></li>
+            <li><a href={ headerMenuAccountURL }>{ headerMenuAccountText }</a></li>
+            <li><a href={ headerMenuSessionURL }>{ headerMenuSessionText }</a></li>
             
             </ul>
         </div>
