@@ -1,5 +1,10 @@
-body{
+* {
     margin: 0;
-    background-color: black;
-    color: coral;
+    padding: 0;
+    font-family: 'Mulish', sans-serif;
+    color: white;
+}
+body {
+/* background: rgb(48,1,16); */
+background: linear-gradient(70deg, rgb(94, 2, 31) , rgba(61, 41, 49, 0.9) ); 
 }
