@@ -4,9 +4,9 @@ import '../assets/styles/components/Header.scss';
 /**
  * Constantes para texto elementos html
  */
-const headerLogoLandingPageURL = "../assets/logo-platzi-video-BW2.png";
+import  headerLogoLandingPageURL from '../assets/static/logo-platzi-video-BW2.png';
 const headerLogoLandingPageAlt = "Video-Logo";
-const headerUserLandingPageURL = "../assets/user-icon.png";
+import headerUserLandingPageURL from "../assets/static/user-icon.png";
 const headerMenuTitle = "Perfil";
 const headerUserLandingPageAlt = "Usuario ;)";
 const headerMenuAccountURL = "#";

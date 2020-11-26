@@ -1,10 +1,12 @@
+@import "./Vars.scss";
+
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Mulish', sans-serif;
+    font-family: $theme-font    ;
     color: white;
 }
 body {
 /* background: rgb(48,1,16); */
-background: linear-gradient(70deg, rgb(94, 2, 31) , rgba(61, 41, 49, 0.9) ); 
+background: $main-color; 
 }
