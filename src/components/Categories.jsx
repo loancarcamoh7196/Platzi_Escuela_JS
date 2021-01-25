@@ -1,10 +1,6 @@
 import React from 'react';
 
 import '../assets/styles/components/Categories.scss';
-/**
- * Constanetes para texto elementos html
- */
-const categoriesTitleText = "Lo ultimo ~ The Witcher";
 
 const Categories = ({ children, title }) => (
   <div className="categories">
@@ -13,4 +9,4 @@ const Categories = ({ children, title }) => (
   </div>
 );
 
-export default Categories;  
+export default Categories;

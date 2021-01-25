@@ -13,7 +13,7 @@ const useInitialState = (API) => {
    * Nota: Si hay un error de consola diciendo que la propiedad length o map no existe
    * o no se puede usar hay que especificar que lista de objectos, se desean traer desde la API
   */
-  const [videos, setVideos] = useState([{ mylist: [], trends: [], originals: [] }]);
+  const [videos, setVideos] = useState([{ }]);
 
   /**
    * Se agregado esta porcion de codigo para generar Carrousel segun cuantas lista alla disponible

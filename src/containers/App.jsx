@@ -30,63 +30,18 @@ const App = () => {
     <div className="App">
       <Header />
       <Search />
-        {
-            categories.map(category => (
-                videos[category].length > 0 && (
-                    
-                    <Categories title={category}>
-                        <Carousel>
-                            {videos[category].map(item => <CarouselItem key={item.id} { ...item }/> ) }
-                        </Carousel>
-                    </Categories> 
+      {
+        categories.map((category) => (
+          videos[category].length > 0 && (
+            <Categories title={category}>
+              <Carousel>
+                {videos[category].map((item) => <CarouselItem key={item.id} { ...item } />) }
+              </Carousel>
+            </Categories>
 
-                )
-            ))
-        }
-
-      <Categories title="The witcher">
-      <Carousel>
-        <CarouselItem />
-        <CarouselItem />
-        <CarouselItem />
-        <CarouselItem />
-        <CarouselItem />
-        <CarouselItem />
-        <CarouselItem />
-      </Carousel>
-    </Categories>
-
-      <Categories title="La Casa de Papel">
-      <Carousel>
-        <CarouselItem />
-        <CarouselItem />
-        <CarouselItem />
-        <CarouselItem />
-        <CarouselItem />
-        <CarouselItem />
-        <CarouselItem />
-        <CarouselItem />
-        <CarouselItem />
-        <CarouselItem />
-        <CarouselItem />
-        <CarouselItem />
-        <CarouselItem />
-        <CarouselItem />
-      </Carousel>
-    </Categories>
-
-      <Categories title="Para ver más tarde">
-      <Carousel>
-        <CarouselItem />
-        <CarouselItem />
-        <CarouselItem />
-        <CarouselItem />
-        <CarouselItem />
-        <CarouselItem />
-        <CarouselItem />
-      </Carousel>
-    </Categories>
-
+          )
+        ))
+      }
       <Footer />
     </div>
   );
