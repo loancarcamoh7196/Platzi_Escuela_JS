@@ -13,51 +13,36 @@ import Carousel from '../components/Carousel';
 import CarouselItem from '../components/CarouselItem';
 import Footer from '../components/Footer';
 
+/**
+ * Mis Hooks
+ */
+import useInitialState from '../hooks/useInitialState';
+
+/**
+ * Mis API
+ */
+const API = 'http://localhost:3000/initialState'; // Mi servicio API ~ debe estar corriendo
+
 const App = () => {
-  /**
-   * Como necesito mi lista de objeto para utilizarlo
-   * Nota: Si hay un error de consoladiciendo que la propiedad length o map no existe
-   * o no se puede usar hay que especificar que lista de objectos, se desean traer desde la API
-  */
-  const [videos, setVideos] = useState([{ mylist: [], trends: [], originals: [] }]);
-
-  //Permite ir a mi FakeAPI, obtiene info y la envia a f(x) setVideo para procesarla
-  // UseEffect necesita 2 parametros; el arreglo que necesita con la info de conexión a la API, con su comportamiento (response y data); y cuantas veces se  desea ejecutar esa consulta
-  useEffect(() => {
-    fetch('http://localhost:3000/initialState')
-      .then(response => response.json())
-      .then(data => setVideos(data));
-  }, []);
-
-  //console.log(videos);
+  const [videos, categories] = useInitialState(API); // Declaracion de uso de API
 
   return (
     <div className="App">
       <Header />
       <Search />
-      {
-       /**
-       * Valida si Lista no esta vacia y se existe, para qu no haya problemas de interrupcion de codigo
-       */
-        videos.mylist?.length > 0 && (
-          <Categories title="Mi Lista">
-            <Carousel>
-             {videos.mylist?.map(item => <CarouselItem key={item.id} { ...item }/> 
-             )}
-            </Carousel>
-          </Categories> 
-        )
-      }
-
-      <Categories title="Tendencias">
-      <Carousel>
         {
-          videos.trends?.map(item =>
-            <CarouselItem key={item.id} { ...item }/>
-          )
+            categories.map(category => (
+                videos[category].length > 0 && (
+                    
+                    <Categories title={category}>
+                        <Carousel>
+                            {videos[category].map(item => <CarouselItem key={item.id} { ...item }/> ) }
+                        </Carousel>
+                    </Categories> 
+
+                )
+            ))
         }
-      </Carousel>
-    </Categories>
 
       <Categories title="The witcher">
       <Carousel>
@@ -70,7 +55,6 @@ const App = () => {
         <CarouselItem />
       </Carousel>
     </Categories>
-
 
       <Categories title="La Casa de Papel">
       <Carousel>

@@ -7,10 +7,10 @@ import '../assets/styles/components/Categories.scss';
 const categoriesTitleText = "Lo ultimo ~ The Witcher";
 
 const Categories = ({ children, title }) => (
-    <div className="categories">
-        <h3 className="categories--title"> { title } </h3>
-        <section className="carrousel"> { children } </section>
-    </div>
+  <div className="categories">
+    <h3 className="categories--title"> { title } </h3>
+    <section className="carrousel"> { children } </section>
+  </div>
 );
 
 export default Categories;  

@@ -21,7 +21,8 @@
   "plugins": [
     "react",
     "jsx-a11y",
-    "import"
+    "import",
+    "react-hooks"
   ],
   "rules": {
     "react/jsx-filename-extension": 0,
@@ -201,6 +202,8 @@
     "vars-on-top": 2,
     "wrap-iife": [2, "any"],
     "wrap-regex": 0,
-    "yoda": [2, "never"]
+    "yoda": [2, "never"],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   }
 }
