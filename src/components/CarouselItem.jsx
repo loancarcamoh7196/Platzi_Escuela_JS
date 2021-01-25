@@ -14,16 +14,16 @@ const itemTitleText = "Título descriptivo";
 const itemSubtitleText = "2020 16+ 114 minutos";
 
 
-const CarouselIteam = () => (
-    <div className="carrousel-item">
-        <img src={ itemCoverURL } alt={ itemCoverAlt } className="carrousel-item__img" />
-        <div className="carrousel-item__details">
+const CarouselIteam = ({ cover, title, year, contentRating, duration }) => (
+  <div className='carrousel-item'>
+    <img src={ cover } alt={ title } className='carrousel-item__img' />
+    <div className='carrousel-item__details'>
             <div>
-                <img src={ itemPlayURL } alt={ itemPlayAlt } className ="carrousel-item__play" />
-                <img src={ itemPlusURL } alt={ itemPlusAlt } className ="carrousel-item__plus" />
+                <img src={ itemPlayURL } alt={ itemPlayAlt } className ='carrousel-item__play' />
+                <img src={ itemPlusURL } alt={ itemPlusAlt } className ='carrousel-item__plus' />
             </div>
-            <p className="carrousel-item__title">{ itemTitleText }</p>
-            <p className="carrousel-item__subtitle">{ itemSubtitleText }</p>
+            <p className='carrousel-item__title'>{ title }</p>
+            <p className='carrousel-item__subtitle'>{ `${year} ${contentRating} ${duration}` }</p>
         </div>
     </div>
 );
