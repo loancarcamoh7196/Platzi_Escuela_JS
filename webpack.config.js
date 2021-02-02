@@ -38,14 +38,25 @@ module.exports = {
         ],
       }, 
       {
-        test: /\.(png|gif|jpg)$/,
+        test: /\.(png|gif|jpg|svg)$/,
         use: [
           {
             loader: 'file-loader',
             options: { name: 'assets/[hash].[ext]' },
           }
         ]
-      }
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'svg-url-loader',
+            options: {
+              limit: 10000,
+            },
+          },
+        ],
+      },
     ] 
   },
   devServer: {
