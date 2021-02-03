@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../assets/styles/components/NotFound.scss';
 import notFoundImage from '../assets/static/404.png';
 
@@ -9,7 +10,9 @@ const NotFound = () => (
     </div>
     <h5> Auch, algo se rompio</h5>
     <h4>Te perdiste?</h4>
-    <a href="/">Volver al Inicio</a>
+    <Link to='/'>
+      Volver al Inicio
+    </Link>
   </section>
 
 );

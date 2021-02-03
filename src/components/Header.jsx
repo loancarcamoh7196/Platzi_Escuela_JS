@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../assets/styles/components/Header.scss';
 
 /**
@@ -17,7 +18,10 @@ const headerMenuSessionText = 'Cerrar Sesión';
 
 const Header = () => (
   <header className='header'>
-    <img className='header__img' src={headerLogoLandingPageURL} alt={headerLogoLandingPageAlt} />
+    <Link to='/'>
+      <img className='header__img' src={headerLogoLandingPageURL} alt={headerLogoLandingPageAlt} />
+    </Link>
+    
     <div className='header__menu'>
       <div className='header__menu--profile'>
         <img src={headerUserLandingPageURL} alt={headerUserLandingPageAlt} />
