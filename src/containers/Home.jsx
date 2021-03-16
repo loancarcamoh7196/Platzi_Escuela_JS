@@ -23,11 +23,11 @@ import CarouselItem from '../components/CarouselItem';
  */
 // const API = 'http://localhost:3000/initialState'; // Mi servicio API ~ debe estar corriendo
 
-const Home = ({ witcher, papel, trends, originals }) => {
+const Home = ({ myList, witcher, papel, trends, originals }) => {
   // const [videos, categories] = useInitialState(API); // Declaracion de uso de API
 
   // const lists = [witcher, papel, trends, originals];
-  const categories = ['The Witcher', 'La Casa de Papel', 'Tendencias', 'Originales'];
+  const categories = ['Favoritos', 'The Witcher', 'La Casa de Papel', 'Tendencias', 'Originales'];
 
   return (
     <>
@@ -46,8 +46,16 @@ const Home = ({ witcher, papel, trends, originals }) => {
         ))
       } */
       }
-
       <Categories title={categories[0]}>
+        <Carousel>
+          {myList?.map((item) => {
+            return (
+              <CarouselItem key={item.id} {...item} />
+            );
+          })}
+        </Carousel>
+      </Categories>
+      <Categories title={categories[1]}>
         <Carousel>
           {witcher?.map((item) => {
             return (
@@ -57,7 +65,7 @@ const Home = ({ witcher, papel, trends, originals }) => {
         </Carousel>
       </Categories>
 
-      <Categories title={categories[1]}>
+      <Categories title={categories[2]}>
         <Carousel>
           {papel?.map((item) => {
             return (
@@ -66,7 +74,7 @@ const Home = ({ witcher, papel, trends, originals }) => {
           })}
         </Carousel>
       </Categories>
-      <Categories title={categories[2]}>
+      <Categories title={categories[3]}>
         <Carousel>
           {trends?.map((item) => {
             return (
@@ -76,7 +84,7 @@ const Home = ({ witcher, papel, trends, originals }) => {
         </Carousel>
       </Categories>
 
-      <Categories title={categories[3]}>
+      <Categories title={categories[4]}>
         <Carousel>
           {originals?.map((item) => {
             return (
@@ -92,6 +100,7 @@ const Home = ({ witcher, papel, trends, originals }) => {
 
 const mapStateToProps = (state) => {
   return {
+    myList: state.myList,
     witcher: state.witcher,
     papel: state.papel,
     trends: state.trends,

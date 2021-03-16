@@ -14,6 +14,22 @@ import reducer from './reducers';
 import App from './routes/App'; //<-- Contenedor Principal
 
 const initialState = {
+  user: {},
+  myList: [
+    {
+      "id": 1,
+      "slug": "tvshow-2",
+      "title": "The witcher",
+      "type": "Scripted",
+      "language": "English",
+      "year": 2009,
+      "contentRating": "16+",
+      "duration": 164,
+      "cover": "https://www.lavanguardia.com/r/GODO/LV/p7/WebSite/2020/07/27/Recortada/img_psola_20191220-091814_imagenes_lv_terceros_thewitcher_101_unit_08529_rtpkej748hf-ktKD-U482551553415ckE-992x558@LaVanguardia-Web.jpg",
+      "description": "Vestibulum ac est lacinia nisi venenatis tristique",
+      "source": "https://mdstrm.com/video/58333e214ad055d208427db5.mp4"
+    }
+  ],
   'witcher': [
     {
       "id": 1,
@@ -427,7 +443,7 @@ const initialState = {
   ]
   
 }
-
+  
 //Inicializar Stor -Redux
 const store = createStore(reducer, initialState)
 
