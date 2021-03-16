@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import { connect } from 'react-redux';
 //Hoja de estilo contenedor
 import '../assets/styles/App.scss';
 
@@ -16,32 +16,87 @@ import CarouselItem from '../components/CarouselItem';
 /**
  * Mis Hooks
  */
-import useInitialState from '../hooks/useInitialState';
+// import useInitialState from '../hooks/useInitialState';
 
 /**
  * Mis API
  */
-const API = 'http://localhost:3000/initialState'; // Mi servicio API ~ debe estar corriendo
+// const API = 'http://localhost:3000/initialState'; // Mi servicio API ~ debe estar corriendo
 
-const Home = () => {
-  const [videos, categories] = useInitialState(API); // Declaracion de uso de API
+const Home = ({ witcher, papel, trends, originals }) => {
+  // const [videos, categories] = useInitialState(API); // Declaracion de uso de API
+
+  // const lists = [witcher, papel, trends, originals];
+  const categories = ['The Witcher', 'La Casa de Papel', 'Tendencias', 'Originales'];
 
   return (
-    <div className='Home'>
+    <>
       <Search />
-      {
-        categories.map((category) => (
-          videos[category].length > 0 && (
-            <Categories title={category}>
+      {/* {
+        categories.map((category, i) => (
+          lists[i].length > 0 && (
+            <Categories key={category} title={category}>
               <Carousel>
-                {videos[category].map((item) => <CarouselItem key={item.id} { ...item } />) }
+                {lists[i].map((item) => (
+                  <CarouselItem key={item.id} {...item} />
+                ))}
               </Carousel>
             </Categories>
-
           )
         ))
+      } */
       }
-    </div>
+
+      <Categories title={categories[0]}>
+        <Carousel>
+          {witcher?.map((item) => {
+            return (
+              <CarouselItem key={item.id} {...item} />
+            );
+          })}
+        </Carousel>
+      </Categories>
+
+      <Categories title={categories[1]}>
+        <Carousel>
+          {papel?.map((item) => {
+            return (
+              <CarouselItem key={item.id} {...item} />
+            );
+          })}
+        </Carousel>
+      </Categories>
+      <Categories title={categories[2]}>
+        <Carousel>
+          {trends?.map((item) => {
+            return (
+              <CarouselItem key={item.id} {...item} />
+            );
+          })}
+        </Carousel>
+      </Categories>
+
+      <Categories title={categories[3]}>
+        <Carousel>
+          {originals?.map((item) => {
+            return (
+              <CarouselItem key={item.id} {...item} />
+            );
+          })}
+        </Carousel>
+      </Categories>
+
+    </>
   );
 };
-export default Home;
+
+const mapStateToProps = (state) => {
+  return {
+    witcher: state.witcher,
+    papel: state.papel,
+    trends: state.trends,
+    originals: state.originals,
+  };
+};
+
+export default connect(mapStateToProps, null)(Home);
