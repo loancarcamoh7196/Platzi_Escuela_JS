@@ -5,7 +5,11 @@ const reducer = (state, action) => {
 
   switch (action.type) {
     /**
-     * 
+     * Agrega a mi lista un nuevo item
+     * Si la encuentra coincidencia solo devolvera el mismo array
+     * Sino pega nuevo item a la pila
+     * @param {array} state lista con info
+     * @return {array} state lista modifica con nuevo item
      */
     case actions.setFavorite:
       //Opcion sencilla
@@ -14,18 +18,13 @@ const reducer = (state, action) => {
       
       return {
         ...state,
-      
-        myList: [
-          state.myList.some(items => items.id ===action.payload.id) ? //Si encuentra coincidencia en mi lista
-                        [...state.myList]
-                        :
-                        [...state.myList, action.payload // Sino encuentra, pegara a la pila el nuevo item
-        ]
+        myList:
+          state.myList.find((item) => item.id === action.payload.id) ? [...state.myList] : [...state.myList, action.payload],
       };
     case actions.deleteFavorite:
       return {
         ...state,
-        myList: state.myList.filter((item) => item.id !== action.payload)
+        myList: state.myList.filter((item) => item.id !== action.payload),
       };
     default:
       return state;
