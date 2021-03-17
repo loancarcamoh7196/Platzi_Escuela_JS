@@ -17,7 +17,7 @@ const initialState = {
   user: {},
   myList: [
     {
-      "id": 1,
+      "id": 'tw-1',
       "slug": "tvshow-2",
       "title": "The witcher",
       "type": "Scripted",
@@ -32,7 +32,7 @@ const initialState = {
   ],
   'witcher': [
     {
-      "id": 1,
+      "id": 'tw-1',
       "slug": "tvshow-2",
       "title": "The witcher",
       "type": "Scripted",
@@ -45,7 +45,7 @@ const initialState = {
       "source": "https://mdstrm.com/video/58333e214ad055d208427db5.mp4"
     },
     {
-      "id": 2,
+      "id": 'tw-2',
       "slug": "tvshow-2",
       "title": "The witcher",
       "type": "Scripted",
@@ -58,7 +58,7 @@ const initialState = {
       "source": "https://mdstrm.com/video/58333e214ad055d208427db5.mp4"
     },
     {
-      "id": 3,
+      "id": 'tw-3',
       "slug": "tvshow-2",
       "title": "The witcher",
       "type": "Scripted",
@@ -71,7 +71,7 @@ const initialState = {
       "source": "https://mdstrm.com/video/58333e214ad055d208427db5.mp4"
     },
     {
-      "id": 4,
+      "id": 'tw-4',
       "slug": "tvshow-2",
       "title": "The witcher",
       "type": "Scripted",
@@ -84,7 +84,7 @@ const initialState = {
       "source": "https://mdstrm.com/video/58333e214ad055d208427db5.mp4"
     },
     {
-      "id": 5,
+      "id": 'tw-5',
       "slug": "tvshow-2",
       "title": "The witcher",
       "type": "Scripted",
@@ -97,7 +97,7 @@ const initialState = {
       "source": "https://mdstrm.com/video/58333e214ad055d208427db5.mp4"
     },
     {
-      "id": 6,
+      "id": 'tw-6',
       "slug": "tvshow-2",
       "title": "The witcher",
       "type": "Scripted",
@@ -112,7 +112,7 @@ const initialState = {
   ],
   'papel': [
     {
-      "id": 1,
+      "id": 'cp-1',
       "slug": "tvshow-2",
       "title": "The witcher",
       "type": "Scripted",
@@ -125,7 +125,7 @@ const initialState = {
       "source": "https://mdstrm.com/video/58333e214ad055d208427db5.mp4"
     },
     {
-      "id": 2,
+      "id": 'cp-2',
       "slug": "tvshow-2",
       "title": "The witcher",
       "type": "Scripted",
@@ -138,7 +138,7 @@ const initialState = {
       "source": "https://mdstrm.com/video/58333e214ad055d208427db5.mp4"
     },
     {
-      "id": 3,
+      "id": 'cp-3',
       "slug": "tvshow-2",
       "title": "The witcher",
       "type": "Scripted",
@@ -151,7 +151,7 @@ const initialState = {
       "source": "https://mdstrm.com/video/58333e214ad055d208427db5.mp4"
     },
     {
-      "id": 4,
+      "id": 'cp-4',
       "slug": "tvshow-2",
       "title": "The witcher",
       "type": "Scripted",
@@ -164,7 +164,7 @@ const initialState = {
       "source": "https://mdstrm.com/video/58333e214ad055d208427db5.mp4"
     },
     {
-      "id": 5,
+      "id": 'cp-5',
       "slug": "tvshow-2",
       "title": "The witcher",
       "type": "Scripted",
@@ -177,7 +177,7 @@ const initialState = {
       "source": "https://mdstrm.com/video/58333e214ad055d208427db5.mp4"
     },
     {
-      "id": 6,
+      "id": 'cp-6',
       "slug": "tvshow-2",
       "title": "The witcher",
       "type": "Scripted",
@@ -190,7 +190,7 @@ const initialState = {
       "source": "https://mdstrm.com/video/58333e214ad055d208427db5.mp4"
     },
     {
-      "id": 7,
+      "id": 'cp-7',
       "slug": "tvshow-2",
       "title": "The witcher",
       "type": "Scripted",
@@ -203,7 +203,7 @@ const initialState = {
       "source": "https://mdstrm.com/video/58333e214ad055d208427db5.mp4"
     },
     {
-      "id": 8,
+      "id": 'cp-8',
       "slug": "tvshow-2",
       "title": "The witcher",
       "type": "Scripted",
@@ -216,7 +216,7 @@ const initialState = {
       "source": "https://mdstrm.com/video/58333e214ad055d208427db5.mp4"
     },
     {
-      "id": 9,
+      "id": 'cp-9',
       "slug": "tvshow-2",
       "title": "The witcher",
       "type": "Scripted",
@@ -229,7 +229,7 @@ const initialState = {
       "source": "https://mdstrm.com/video/58333e214ad055d208427db5.mp4"
     },
     {
-      "id": 10,
+      "id": 'cp-10',
       "slug": "tvshow-2",
       "title": "The witcher",
       "type": "Scripted",
@@ -242,7 +242,7 @@ const initialState = {
       "source": "https://mdstrm.com/video/58333e214ad055d208427db5.mp4"
     },
     {
-      "id": 11,
+      "id": 'cp-11',
       "slug": "tvshow-2",
       "title": "The witcher",
       "type": "Scripted",
@@ -255,7 +255,7 @@ const initialState = {
       "source": "https://mdstrm.com/video/58333e214ad055d208427db5.mp4"
     },
     {
-      "id": 12,
+      "id": 'cp-12',
       "slug": "tvshow-2",
       "title": "The witcher",
       "type": "Scripted",
@@ -268,7 +268,7 @@ const initialState = {
       "source": "https://mdstrm.com/video/58333e214ad055d208427db5.mp4"
     },
     {
-      "id": 13,
+      "id": 'cp-13',
       "slug": "tvshow-2",
       "title": "The witcher",
       "type": "Scripted",
@@ -283,7 +283,7 @@ const initialState = {
   ],
   'trends': [
     {
-      "id": 2,
+      "id": 't-2',
       "slug": "tvshow-2",
       "title": "In the Dark",
       "type": "Scripted",
@@ -296,7 +296,7 @@ const initialState = {
       "source": "https://mdstrm.com/video/58333e214ad055d208427db5.mp4"
     },
     {
-      "id": 3,
+      "id": 't-3',
       "slug": "tvshow-3",
       "title": "Instinct",
       "type": "Adventure",
@@ -309,7 +309,7 @@ const initialState = {
       "source": "https://mdstrm.com/video/58333e214ad055d208427db5.mp4"
     },
     {
-      "id": 4,
+      "id": 't-4',
       "slug": "tvshow-4",
       "title": "Grand Hotel",
       "type": "Comedy",
@@ -322,7 +322,7 @@ const initialState = {
       "source": "https://mdstrm.com/video/58333e214ad055d208427db5.mp4"
     },
     {
-      "id": 5,
+      "id": 't-5',
       "slug": "tvshow-5",
       "title": "Stargate Atlantis",
       "type": "Scripted",
@@ -335,7 +335,7 @@ const initialState = {
       "source": "https://mdstrm.com/video/58333e214ad055d208427db5.mp4"
     },
     {
-      "id": 6,
+      "id": 't-6',
       "slug": "tvshow-6",
       "title": "Final Space",
       "type": "Scripted",
@@ -348,7 +348,7 @@ const initialState = {
       "source": "https://mdstrm.com/video/58333e214ad055d208427db5.mp4"
     },
     {
-      "id": 7,
+      "id": 't-7',
       "slug": "tvshow-7",
       "title": "The InBetween",
       "type": "Drama",
@@ -363,7 +363,7 @@ const initialState = {
   ],
   "originals": [
     {
-      "id": 8,
+      "id": 't-8',
       "slug": "tvshow-8",
       "title": "Stargate Atlantis",
       "type": "Action",
@@ -376,7 +376,7 @@ const initialState = {
       "source": "https://mdstrm.com/video/58333e214ad055d208427db5.mp4"
     },
     {
-      "id": 9,
+      "id": 't-9',
       "slug": "tvshow-9",
       "title": "Alien Highway",
       "type": "Action",
@@ -389,7 +389,7 @@ const initialState = {
       "source": "https://mdstrm.com/video/58333e214ad055d208427db5.mp4"
     },
     {
-      "id": 10,
+      "id": 't-10',
       "slug": "tvshow-10",
       "title": "Elementary",
       "type": "Animation",
@@ -402,7 +402,7 @@ const initialState = {
       "source": "https://mdstrm.com/video/58333e214ad055d208427db5.mp4"
     },
     {
-      "id": 11,
+      "id": 't-11',
       "slug": "tvshow-11",
       "title": "Strange Angel",
       "type": "War",
@@ -415,7 +415,7 @@ const initialState = {
       "source": "https://mdstrm.com/video/58333e214ad055d208427db5.mp4"
     },
     {
-      "id": 12,
+      "id": 't-12',
       "slug": "tvshow-12",
       "title": "Private Eyes",
       "type": "Comedy",
@@ -428,7 +428,7 @@ const initialState = {
       "source": "https://mdstrm.com/video/58333e214ad055d208427db5.mp4"
     },
     {
-      "id": 13,
+      "id": 't-13',
       "slug": "tvshow-13",
       "title": "NCIS: Los Angeles",
       "type": "Drama",

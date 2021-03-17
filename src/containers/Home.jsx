@@ -27,7 +27,7 @@ const Home = ({ myList, witcher, papel, trends, originals }) => {
   // const [videos, categories] = useInitialState(API); // Declaracion de uso de API
 
   // const lists = [witcher, papel, trends, originals];
-  const categories = ['Favoritos', 'The Witcher', 'La Casa de Papel', 'Tendencias', 'Originales'];
+  const categories = ['Mis Favoritos', 'The Witcher', 'La Casa de Papel', 'Tendencias', 'Originales'];
 
   return (
     <>

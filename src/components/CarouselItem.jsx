@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 //Importar Acciones
-import { setFavorite } from '../actions';
+import { setFavorite, deleteFavorite } from '../actions';
 import '../assets/styles/components/CarouselItem.scss';
 
 /**
@@ -12,18 +12,24 @@ import '../assets/styles/components/CarouselItem.scss';
 
 import itemPlayURL from '../assets/static/icons8-usuario-48.png';
 import itemPlusURL from '../assets/static/plus-icon.png';
+import itemDeleteURL from '../assets/static/remove-icon.png';
 
 const itemPlusAlt = 'Plus';
 const itemPlayAlt = 'Play';
+const itemDeleteAlt = 'Quitar';
 
 const CarouselIteam = (props) => {
   //Recuperamos lo necesario de cada item y lo convertimos en constantes
-  const { cover, title, year, contentRating, duration } = props;
+  const { id, cover, title, year, contentRating, duration } = props;
 
   const handleSetFavorite = () => {
     props.setFavorite({
-      cover, title, year, contentRating, duration
-    })
+      id, cover, title, year, contentRating, duration,
+    });
+  };
+
+  const handleDeleteFavorite = () => {
+    props.deleteFavorite(id)
   };
 
   return (
@@ -38,6 +44,12 @@ const CarouselIteam = (props) => {
             className='carrousel-item__plus'
             onClick={handleSetFavorite}
           />
+          <img
+            src={itemDeleteURL}
+            alt={itemDeleteAlt}
+            className='carrousel-item__plus'
+            onClick={handleDeleteFavorite}
+          />
         </div>
         <p className='carrousel-item__title'>{ title }</p>
         <p className='carrousel-item__subtitle'>{ `${year} ${contentRating} ${duration}` }</p>
@@ -50,6 +62,7 @@ const CarouselIteam = (props) => {
  * Valida tipo de datos Usados
  */
 CarouselIteam.propTypes = {
+  id: PropTypes.string,
   cover: PropTypes.string,
   title: PropTypes.string,
   year: PropTypes.number,
@@ -62,7 +75,8 @@ CarouselIteam.propTypes = {
  */
 const mapDispatchToProps = {
   setFavorite,
-}
+  deleteFavorite,
+};
 
 // export default CarouselIteam; //Linea innecesaria
 export default connect(null, mapDispatchToProps)(CarouselIteam);
