@@ -20,7 +20,7 @@ const itemDeleteAlt = 'Quitar';
 
 const CarouselIteam = (props) => {
   //Recuperamos lo necesario de cada item y lo convertimos en constantes
-  const { id, cover, title, year, contentRating, duration } = props;
+  const { id, cover, title, year, contentRating, duration, isList } = props;
 
   const handleSetFavorite = () => {
     props.setFavorite({
@@ -37,19 +37,27 @@ const CarouselIteam = (props) => {
       <img src={cover} alt={title} className='carrousel-item__img' />
       <div className='carrousel-item__details'>
         <div>
-          <img src={itemPlayURL} alt={itemPlayAlt} className='carrousel-item__play' />
-          <img
-            src={itemPlusURL}
-            alt={itemPlusAlt}
-            className='carrousel-item__plus'
-            onClick={handleSetFavorite}
+          <img 
+            src={itemPlayURL}
+            alt={itemPlayAlt}
+            className='carrousel-item__play'
           />
-          <img
-            src={itemDeleteURL}
-            alt={itemDeleteAlt}
-            className='carrousel-item__plus'
-            onClick={handleDeleteFavorite}
-          />
+          {isList ? (
+            <img
+              src={itemDeleteURL}
+              alt={itemDeleteAlt}
+              className='carrousel-item__plus'
+              onClick={handleDeleteFavorite}
+            />
+          ) : (
+            <img
+              src={itemPlusURL}
+              alt={itemPlusAlt}
+              className='carrousel-item__plus'
+              onClick={handleSetFavorite}
+            />
+          )}
+
         </div>
         <p className='carrousel-item__title'>{ title }</p>
         <p className='carrousel-item__subtitle'>{ `${year} ${contentRating} ${duration}` }</p>

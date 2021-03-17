@@ -50,7 +50,11 @@ const Home = ({ myList, witcher, papel, trends, originals }) => {
         <Carousel>
           {myList?.map((item) => {
             return (
-              <CarouselItem key={item.id} {...item} />
+              <CarouselItem
+                key={item.id}
+                {...item}
+                isList
+              />
             );
           })}
         </Carousel>
@@ -59,7 +63,10 @@ const Home = ({ myList, witcher, papel, trends, originals }) => {
         <Carousel>
           {witcher?.map((item) => {
             return (
-              <CarouselItem key={item.id} {...item} />
+              <CarouselItem
+                key={item.id}
+                {...item}
+              />
             );
           })}
         </Carousel>
