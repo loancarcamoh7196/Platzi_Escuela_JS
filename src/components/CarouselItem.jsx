@@ -37,7 +37,7 @@ const CarouselIteam = (props) => {
       <img src={cover} alt={title} className='carrousel-item__img' />
       <div className='carrousel-item__details'>
         <div>
-          <img 
+          <img
             src={itemPlayURL}
             alt={itemPlayAlt}
             className='carrousel-item__play'
