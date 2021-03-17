@@ -14,6 +14,14 @@ import itemPlayURL from '../assets/static/icons8-usuario-48.png';
 import itemPlusURL from '../assets/static/plus-icon.png';
 import itemDeleteURL from '../assets/static/remove-icon.png';
 
+/**
+ * Constante para texto harcodeado de card item
+ */
+const txtItem = {
+  itemPlusAlt: 'Plus',
+  
+}
+
 const itemPlusAlt = 'Plus';
 const itemPlayAlt = 'Play';
 const itemDeleteAlt = 'Quitar';
