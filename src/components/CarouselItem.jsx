@@ -19,12 +19,9 @@ import itemDeleteURL from '../assets/static/remove-icon.png';
  */
 const txtItem = {
   itemPlusAlt: 'Plus',
-  
-}
-
-const itemPlusAlt = 'Plus';
-const itemPlayAlt = 'Play';
-const itemDeleteAlt = 'Quitar';
+  itemPlayAlt: 'Play',
+  itemDeleteAlt: 'Quitar',
+};
 
 const CarouselIteam = (props) => {
   //Recuperamos lo necesario de cada item y lo convertimos en constantes
@@ -47,20 +44,20 @@ const CarouselIteam = (props) => {
         <div>
           <img
             src={itemPlayURL}
-            alt={itemPlayAlt}
+            alt={txtItem.itemPlayAlt}
             className='carrousel-item__play'
           />
           {isList ? (
             <img
               src={itemDeleteURL}
-              alt={itemDeleteAlt}
+              alt={txtItem.itemDeleteAlt}
               className='carrousel-item__plus'
               onClick={handleDeleteFavorite}
             />
           ) : (
             <img
               src={itemPlusURL}
-              alt={itemPlusAlt}
+              alt={txtItem.itemPlusAlt}
               className='carrousel-item__plus'
               onClick={handleSetFavorite}
             />

@@ -3,19 +3,25 @@ export const actions = {
   setFavorite: 'SET_FAVORITE',
   deleteFavorite: 'DELETE_FAVORITE',
   loginRequest: 'LOGIN_REQUEST',
+  registerRequest: 'REGISTER_REQUEST',
 };
 
-export const setFavorite = payload => ({
+export const setFavorite = (payload) => ({
   type: actions.setFavorite,
   payload,
 });
 
-export const deleteFavorite = payload => ({
+export const deleteFavorite = (payload) => ({
   type: actions.deleteFavorite,
   payload,
 });
 
-export const loginRequest = payload => ({
+export const loginRequest = (payload) => ({
   type: actions.loginRequest,
+  payload,
+});
+
+export const registerRequest = (payload) => ({
+  type: actions.registerRequest,
   payload,
 });

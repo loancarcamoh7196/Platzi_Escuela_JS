@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import gravatar from '../utils/gravatar';
 import '../assets/styles/components/Header.scss';
 
 /**
@@ -12,7 +13,7 @@ import iconUser from '../assets/static/user-icon.png';
 /**
  * Constantes para texto harcodeados
  */
-const textHeader = {
+const txtHeader = {
   urlDirection: '#',
   logoLandingPageAlt: 'Video-Logo',
   menuTitle: 'Perfil',
@@ -24,41 +25,48 @@ const textHeader = {
   menuLoginText: 'Ingresa',
 };
 
-const Header = ({ user }) => {
-  console.log(user.email);
+const Header = (props) => {
+  const { user } = props;
+  
 
   return (
     <header className='header'>
       <Link to='/'>
-        <img className='header__img' src={logoInsignia} alt={textHeader.logoLandingPageAlt} />
+        <img
+          className='header__img'
+          src={logoInsignia}
+          alt={txtHeader.logoLandingPageAlt}
+        />
       </Link>
 
       <div className='header__menu'>
         <div className='header__menu--profile'>
-          <img
-            src={iconUser}
-            alt={textHeader.userLandingPageAlt}
-          />
-          <p>{ textHeader.menuTitle }</p>
+          {
+            Object.keys(user).length > 0 ?
+              <img src={gravatar(user.email)} alt={user.email} />
+              :
+              <img src={iconUser} alt={txtHeader.userLandingPageAlt} />
+          }
+          <p>{ txtHeader.menuTitle }</p>
         </div>
 
         {
           (user.email !== undefined) ? (
             <ul>
               <li>
-                <p>{`${textHeader.menuWelcomeTxt} ${user.email}`}</p>
+                <p>{`${txtHeader.menuWelcomeTxt} ${user.email}`}</p>
               </li>
               <li>
-                <Link to='/'>{`${textHeader.menuAccountText}`}</Link>
+                <Link to='/'>{`${txtHeader.menuAccountText}`}</Link>
               </li>
             </ul>
           ) : (
             <ul>
               <li>
-                <Link to='/register'>{`${textHeader.menuRegisterText}`}</Link>
+                <Link to='/register'>{`${txtHeader.menuRegisterText}`}</Link>
               </li>
               <li>
-                <Link to='/login'>{textHeader.menuLoginText}</Link>
+                <Link to='/login'>{txtHeader.menuLoginText}</Link>
               </li>
             </ul>
           )
@@ -67,7 +75,13 @@ const Header = ({ user }) => {
       </div>
     </header>
   );
+
+  if(Object.keys(user).length > 0){
+    alert(gravatar(user.email))
+  }
 };
+
+
 const mapStateToProps = (state) => {
   return {
     user: state.user,

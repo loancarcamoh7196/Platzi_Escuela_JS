@@ -6,24 +6,37 @@ import '../assets/styles/components/Login.scss';
 import googleIcon from '../assets/static/google-icon.png';
 import twitterIcon from '../assets/static/twitter-icon.png';
 
+const txtLogin = {
+  emailPlaceholder: 'Correo',
+  passPlaceholder: 'Contraseña',
+  sessionText: 'Iniciar Sesión',
+  rememberMeText: 'Recuerdame',
+  forgetText: 'Olvide mi contraseña',
+  loginGoogleText: 'Inicia sesión con Google',
+  loginTwitterText: 'Inicia sesión con Twitter',
+  dontHaveAccountText: 'No tienes ninguna cuenta?',
+  registerText: 'Regístrate',
+  googleAltText: 'Google',
+  twitterAltText: 'Twitter',
+};
+
 const Login = (props) => {
   const [form, setValues] = useState({
     email: '',
 
   });
 
-  const handleInput = event => {
+  const handleInput = (event) => {
     setValues({
       ...form,
       [event.target.name]: event.target.value,
     });
   };
 
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     props.loginRequest(form);
-    props.history.push('/')
-
+    props.history.push('/');
   };
 
   return (
@@ -39,40 +52,40 @@ const Login = (props) => {
             name='email'
             type='text'
             className='input'
-            placeholder='Correo'
+            placeholder={txtLogin.emailPlaceholder}
             onChange={handleInput}
           />
           <input
             name='password'
             type='password'
             className='input'
-            placeholder='Contraseña'
+            placeholder='{txtLogin.passPlaceholder}'
             onChange={handleInput}
           />
-          <button className='button' type='submit'> Iniciar Sesión </button>
+          <button className='button' type='submit'>{txtLogin.sessionText}</button>
 
           <div className='login__container--remember--me'>
             <label>
               <input type='checkbox' name='' id='cbox1' value='checkbox' />
-              Recuerdame
+              {txtLogin.rememberMeText}
             </label>
-            <a href='#'> Olvide mi contraseña </a>
+            <Link >{txtLogin.forgetText}</Link>
           </div>
         </form>
         <section className='login__container--social-media'>
           <div>
-            <img src={googleIcon} alt='Google' />
-            Inicia sesión con Google
+            <img src={googleIcon} alt={txtLogin.googleAltText} />
+            {txtLogin.loginGoogleText}
           </div>
           <div>
-            <img src={twitterIcon} alt='Twitter' />
-            Inicia sesión con Twitter
+            <img src={twitterIcon} alt={txtLogin.twitterAltText} />
+            {txtLogin.loginTwitterText}
           </div>
         </section>
         <p className='login__container--register'>
-          No tienes ninguna cuenta?
+          {txtLogin.dontHaveAccountText}
           <Link to='/register'>
-            Regístrate
+            {txtLogin.registerText}
           </Link>
         </p>
       </section>
