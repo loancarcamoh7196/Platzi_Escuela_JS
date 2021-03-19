@@ -37,6 +37,17 @@ const reducer = (state, action) => {
         ...state,
         user: action.payload,
       };
+    case actions.getVideoSource:
+      return {
+        ...state,
+        playing: (
+          state.witcher.find((item) => item.id === String(action.payload))
+          || state.papel.find((item) => item.id === String(action.payload))
+          || state.trends.find((item) => item.id === String(action.payload))
+          || state.originals.find((item) => item.id === String(action.payload))
+          || []
+        )
+      };
     default:
       return state;
   }
