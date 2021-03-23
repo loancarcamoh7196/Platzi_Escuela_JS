@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
+import Header from '../components/Header';
 //Hoja de estilo contenedor
 import '../assets/styles/App.scss';
 
@@ -31,6 +32,7 @@ const Home = ({ myList, witcher, papel, trends, originals }) => {
 
   return (
     <>
+      <Header />
       <Search />
       {/* {
         categories.map((category, i) => (

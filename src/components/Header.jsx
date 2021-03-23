@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import classNames from 'classnames';
 import gravatar from '../utils/gravatar';
 import '../assets/styles/components/Header.scss';
 
@@ -26,11 +27,15 @@ const txtHeader = {
 };
 
 const Header = (props) => {
-  const { user } = props;
-  
+  const { user, isLogin, isRegister } = props;
+
+  const headerClass = classNames('header', {
+    isLogin,
+    isRegister,
+  });
 
   return (
-    <header className='header'>
+    <header className={headerClass}>
       <Link to='/'>
         <img
           className='header__img'
@@ -43,7 +48,7 @@ const Header = (props) => {
         <div className='header__menu--profile'>
           {
             Object.keys(user).length > 0 ?
-              <img src={gravatar(user.email)} alt={user.email} />
+              <img src={gravatar(user.email)} alt={user.email} className='header__menu--gravitar' />
               :
               <img src={iconUser} alt={txtHeader.userLandingPageAlt} />
           }
@@ -76,11 +81,7 @@ const Header = (props) => {
     </header>
   );
 
-  if(Object.keys(user).length > 0){
-    alert(gravatar(user.email))
-  }
 };
-
 
 const mapStateToProps = (state) => {
   return {

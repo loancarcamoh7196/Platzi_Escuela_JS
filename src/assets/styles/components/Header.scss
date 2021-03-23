@@ -1,5 +1,5 @@
 .header {
-    /* background: #300110; */
+    // background: #300110; 
     box-sizing: border-box;
     height: 90px;
     padding-top: 8px;
@@ -9,8 +9,12 @@
     justify-content: space-between;
     align-items: center;
 }
+.isLogin, .isRegister {
+    background: #0d0d0d;
+    margin-bottom: 1rem;
+}
 .header__img {
-    width: 250px;
+    width: 200px;
 }
 .header__menu {
     margin-right: 30px;
@@ -23,33 +27,47 @@
     padding: 0;
     position: absolute;
     text-align: right;
-    width: 100px;
 }
-.header__menu:hover ul, ul:hover{
-display: block;
+.header__menu:hover ul, ul:hover {
+    display: block;
 }
-.header__menu li{
-margin: 10px 0
+.header__menu li {
+    margin: 10px 0;
+    max-width: 100px;
 }
-.header__menu li a:hover{
-text-decoration: underline;
+
+.header__menu li a:hover {
+    text-decoration: underline;
 }
-.header__menu a{
-color: white;
-text-decoration: none;
+
+.header__menu a {
+    color: #d9a404;
+    text-decoration: none;
 }
+
+.header__menu a:hover {
+    color: #d93030;
+    font-weight: bold;
+}
+
 .header__menu--profile {
     margin-right: 8px;
     /* width: 40px; */
     display: flex;
     align-items: center;
 }
+
 .header__menu--profile img{
     margin: 0;
     /* width: 40px; */
     color: white;
     display: flex;
 }
+
 .header__menu--profile p {
-margin: 0;
+    margin: 0;
+}
+
+.header__menu--gravitar {
+    width: 40px;
 }

@@ -1,5 +1,5 @@
 
-.login, .register {
+.login {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -7,12 +7,13 @@
     padding: 0;
     min-height: calc(100vh - 200px);
 }
+
 .login-title, .register-title {
     letter-spacing: 2.5px;
 }
-.login__container, .register__container {
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 2ṕx solid white;
+.login__container {
+    background-color: rgba(35, 1, 32, 0.1);
+    border: 2px solid #f27405;
     border-radius: 40px;
     padding: 60px 68px 40px;
     min-height: 700px;
@@ -23,12 +24,12 @@
     margin-bottom: 1rem;
 }
 
-.login__container--form, .register__container--form  {
+.login__container--form {
     display: flex;
     flex-direction: column;
 }
 
-.login__container--form label, .register__container--form label {
+.login__container--form label {
     font-size: 14px;
 }
 
@@ -45,34 +46,35 @@
 .login__container--remember--me a:hover {
     text-decoration: underline;
 }
-.login__container--social-media > div, .register__container--social-media > div {
+.login__container--social-media > div {
     display: flex;
     align-items: center;
     font-size: 14px;
     margin-bottom: 10px;
 }
 
-.login__container--social-media > div >img, .register__container--social-media > div >img {
+.login__container--social-media > div >img {
     max-width: 30px;
     margin-right: 10px;
 }
-.login__container--register, .register__container--register {
+.login__container--register {
     font-size: 14px;
 }
 
-.login__container--register a, .register__container--register a {
+.login__container--register a {
     font-size: 16px;
     font-weight: bold;
     text-decoration: none;
 }
-.login__container--register a:hover, .register__container--register a:hover {
+.login__container--register a:hover {
     text-decoration: underline;
+    color: #7c8c03;
 }
 
-.input {
+.login__container--input {
     background-color: transparent;
     border: 0;
-    border-bottom: 2px solid white ;
+    border-bottom: 2px solid #f27405 ;
     font-size: 16px;
     margin-bottom: 20px;
     padding: 15px 35px;
@@ -81,15 +83,18 @@
 ::placeholder{
     color: white;
 }
-.button{
-    background-color: rgba(255, 255, 255, 0.1);
+
+.login__container--button {
+    background-color: rgba(13, 9, 13, 0.1);
     border-radius: 35px;
-    /* border: 2px solid white; */
-    border: none;
+    border: 1px solid #d9a404;
     font-size: 16px;
     font-weight: bold;
     height: 50px;
     margin: 10px 0 10px;
     letter-spacing: 1px;
 }
-    
+
+.login__container--button:hover {
+    background-color: #f27405;
+}

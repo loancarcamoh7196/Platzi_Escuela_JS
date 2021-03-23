@@ -6,8 +6,8 @@
     width: 100%;
     // position: absolute;
     overflow: hidden;
-    background-color: rgba(5, 4, 4, 0.75);
-
+    background-color: rgba(13, 9, 13, 0.75);
+    margin: 1rem 0 0 0 ;
 }
 
 .footer__not-found {
@@ -21,4 +21,6 @@
 }
 .footer a:hover {
     text-decoration: underline;
+    color: #f27405;
+    font-weight: bold;
 }

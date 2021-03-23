@@ -1,4 +1,4 @@
- .register {
+.register {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -6,12 +6,12 @@
     padding: 0;
     min-height: calc(100vh - 200px);
 }
- .register-title {
+.register-title {
     letter-spacing: 2.5px;
 }
 .register__container {
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 2px solid white;
+    background-color: rgba(13, 13, 13, 0.1);
+    border: 2px solid #7c8c03;
     border-radius: 40px;
     padding: 60px 68px 40px;
     min-height: 700px;
@@ -54,12 +54,13 @@
 
 .register__container--register a:hover {
     text-decoration: underline;
+    color: #f27040;
 }
 
-.input {
+.register__container--register--input {
     background-color: transparent;
     border: 0;
-    border-bottom: 2px solid white ;
+    border-bottom: 2px solid #7c8c03 ;
     font-size: 16px;
     margin-bottom: 20px;
     padding: 15px 35px;
@@ -68,14 +69,18 @@
 ::placeholder{
     color: white;
 }
-.button{
-    background-color: rgba(255, 255, 255, 0.1);
+.register__container--register--button {
+    background-color: rgba(13, 9, 13, 0.1);
     border-radius: 35px;
     /* border: 2px solid white; */
-    border: none;
+    border: 1px solid #d9a404;
     font-size: 16px;
     font-weight: bold;
     height: 50px;
     margin: 10px 0 10px;
     letter-spacing: 1px;
+}
+
+.register__container--register--button:hover {
+    background-color: #7c8c03;
 }
