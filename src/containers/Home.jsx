@@ -33,7 +33,7 @@ const Home = ({ myList, witcher, papel, trends, originals }) => {
   return (
     <>
       <Header />
-      <Search />
+      <Search isHome />
       {/* {
         categories.map((category, i) => (
           lists[i].length > 0 && (
@@ -73,7 +73,6 @@ const Home = ({ myList, witcher, papel, trends, originals }) => {
           })}
         </Carousel>
       </Categories>
-
       <Categories title={categories[2]}>
         <Carousel>
           {papel?.map((item) => {
@@ -92,7 +91,6 @@ const Home = ({ myList, witcher, papel, trends, originals }) => {
           })}
         </Carousel>
       </Categories>
-
       <Categories title={categories[4]}>
         <Carousel>
           {originals?.map((item) => {
