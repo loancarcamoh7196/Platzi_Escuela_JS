@@ -24,30 +24,25 @@ import CarouselItem from '../components/CarouselItem';
  */
 // const API = 'http://localhost:3000/initialState'; // Mi servicio API ~ debe estar corriendo
 
-const Home = ({ myList, witcher, papel, trends, originals }) => {
+const Home = (props) => {
+  const { myList, witcher, papel, trends, originals, searchResult } = props;
   // const [videos, categories] = useInitialState(API); // Declaracion de uso de API
+
+  console.log(searchResult);
 
   // const lists = [witcher, papel, trends, originals];
   const categories = ['Mis Favoritos', 'The Witcher', 'La Casa de Papel', 'Tendencias', 'Originales'];
+
 
   return (
     <>
       <Header />
       <Search isHome />
-      {/* {
-        categories.map((category, i) => (
-          lists[i].length > 0 && (
-            <Categories key={category} title={category}>
-              <Carousel>
-                {lists[i].map((item) => (
-                  <CarouselItem key={item.id} {...item} />
-                ))}
-              </Carousel>
-            </Categories>
-          )
-        ))
-      } */
-      }
+
+      <Categories title="Resultados">
+
+      </Categories>
+
       <Categories title={categories[0]}>
         <Carousel>
           {myList?.map((item) => {
@@ -112,6 +107,7 @@ const mapStateToProps = (state) => {
     papel: state.papel,
     trends: state.trends,
     originals: state.originals,
+    search: state.searchResult,
   };
 };
 
