@@ -1,1 +1,3 @@
-# Platzi_React_JS_2
+# Platzi Escuela JS
+
+Repo Principal de Ruta __JavaScript__
