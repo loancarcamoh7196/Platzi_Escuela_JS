@@ -20,11 +20,6 @@ if(config.env === 'development') {
 } else if (config.env === 'production') {
   console.log('PRODUCTION MODE');
 }
-/**
- * TODO prueba
- * FIXME hola
- * 
- */
 
 app.get('*', (req, res) => {
   res.send({ hello: 'Hola, ten un buen día' });
