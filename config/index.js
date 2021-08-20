@@ -1,3 +1,7 @@
+/**
+ * Archivo de configuración
+ * Aqui estan: Variable de Entorno
+ */
 require('dotenv').config();
 
 const config = {

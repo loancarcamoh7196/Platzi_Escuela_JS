@@ -1,9 +1,14 @@
 const path = require('path');
+const Webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  entry: './src/frontend/index.js',
+  entry: [
+    './src/frontend/index.js', // Path inicio de Front END
+    'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=2000&reload=true' // Path de Server Render
+  ],
+  mode: 'development',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -64,6 +69,7 @@ module.exports = {
     historyApiFallback: true,
   },
   plugins: [
+    new Webpack.HotModuleReplacementPlugin(),
     new HtmlWebPackPlugin({
       template: './public/index.html',
       filename: './index.html',
