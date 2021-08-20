@@ -1,0 +1,31 @@
+.main {
+    height: 15vh;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.main__title {
+    letter-spacing: 1px;
+    font-weight: bold;
+    padding: 0 0 3vh 0 ;
+}
+.main__input__buscador {
+    background-color: rgba(13, 9, 13, 0.1);
+    border: 2px solid #d93030;
+    border-radius: 45px;
+    color : white;
+    font-family: 'Mulish', sans-serif;
+    font-size: 16px;
+    height: 50px;
+    padding: 0 20px;
+    width: 70%;
+    outline: none;
+    /* text-align: center; */
+}
+.isHome {
+    width: 85%;
+}
+::placeholder{
+    color: white;
+}
