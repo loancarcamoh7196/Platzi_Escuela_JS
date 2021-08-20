@@ -13,7 +13,7 @@ if(config.env === 'development') {
   const compiler = webpack(webpackConfig);
   // const serverConfig = { port: PORT, hot: true }; -- webpackDevMiddleware version 3.7.2
 
-  const serverConfig = { serverSideRender: true };
+  const serverConfig = { serverSideRender: true, publicPath: webpackConfig.output.publicPath };
 
   app.use(webpackDevMiddleware(compiler, serverConfig));
   app.use(webpackHotMiddleware(compiler));
@@ -22,7 +22,19 @@ if(config.env === 'development') {
 }
 
 app.get('*', (req, res) => {
-  res.send({ hello: 'Hola, ten un buen día' });
+  res.send(`
+  <!DOCTYPE html>
+    <html>
+      <head>
+        <link rel="stylesheet" href="assets/app.css" type="text/css">
+        <title>Platzi Video</title>
+      </head>
+      <body>
+        <div id="app"></div>
+        <script src="assets/app.js" type="text/javascript"></script>
+      </body>
+    </html>
+  `);
 });
 
 app.listen(config.port, (err) => {
