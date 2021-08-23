@@ -1,3 +1,7 @@
+/**
+ * Punto inicio de Poryecto
+ * Lado Backend
+ */
 require('ignore-styles');//Obliga al servidor a ignorar los llamdos de estilos css
 
 require('@babel/register')({
