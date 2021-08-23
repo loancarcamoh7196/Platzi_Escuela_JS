@@ -9,7 +9,6 @@ import { renderToString } from 'react-dom/server'; // Renderiza las respuesta de
 import { Provider } from 'react-redux';
 import { renderRoutes } from 'react-router-config';// Recibe Array de ruta de lado Servidor
 import { createStore } from 'redux';
-// import { StaticRouter } from 'react-router';
 import { StaticRouter } from 'react-router-dom';
 import reducer from '../frontend/reducers';
 import serverRoutes from '../frontend/routes/serverRoutes';// Array de Rutas
