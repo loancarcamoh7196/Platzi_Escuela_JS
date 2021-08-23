@@ -42,18 +42,18 @@ if (config.env === 'development') {
  */
 const setResponse = (html) =>{
   return (`
-  <!DOCTYPE html>
-  <html>
-    <head>
-      <link rel="stylesheet" href="assets/app.css" type="text/css">
-      <title>Platzi Video</title>
-    </head>
-    <body>
-      <div id="app">${html}</div>
-      <script src="assets/app.js" type="text/javascript"></script>
-    </body>
-  </html>
-  `)
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <link rel="stylesheet" href="assets/app.css" type="text/css">
+        <title>Platzi Video</title>
+      </head>
+      <body>
+        <div id="app">${html}</div>
+        <script src="assets/app.js" type="text/javascript"></script>
+      </body>
+    </html>
+  `);
 };
 
 /**
@@ -72,7 +72,7 @@ const renderApp = (req, res) => {
   );
 
   res.send(setResponse(html)); // contenido de la pagina ya renderezado carga
-}
+};
 
 app.get('*', renderApp);
 

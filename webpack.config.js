@@ -6,13 +6,14 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
   entry: [
     './src/frontend/index.js', // Path inicio de Front END
-    'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=2000&reload=true' // Path de Server Render
+    'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=2000&reload=true', // Path de Server Render
   ],
   mode: 'development',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'assets/app.js',
     publicPath: '/',
+    assetModuleFilename: 'assets/[name][ext]',
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -44,13 +45,8 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|gif|jpg|svg)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: { name: 'assets/[hash].[ext]' },
-          },
-        ],
+        test: /\.(png|gif|jpg|svg)$/i,
+        type: 'asset/resource',
       },
       {
         test: /\.svg$/,
