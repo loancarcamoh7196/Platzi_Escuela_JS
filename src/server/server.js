@@ -37,10 +37,11 @@ if (config.env === 'development') {
 
 /**
  * Inserta en codigo html renderizado dentro del Contenedor de la página
- * @param {String} html Contenido renderizado
+ * @param {*} html Contenido renderizado
+ * @param {*} preloadedState Data a desplegar
  * @returns String Texto completo a desplegar de la página
  */
-const setResponse = (html) =>{
+const setResponse = (html, preloadedState) => {
   return (`
     <!DOCTYPE html>
     <html>
@@ -50,6 +51,9 @@ const setResponse = (html) =>{
       </head>
       <body>
         <div id="app">${html}</div>
+        <script>
+        window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g,'\\u003c')}
+        </script>
         <script src="assets/app.js" type="text/javascript"></script>
       </body>
     </html>
@@ -63,6 +67,7 @@ const setResponse = (html) =>{
  */
 const renderApp = (req, res) => {
   const store = createStore(reducer, initialState);
+  const preloadedState = store.getState();
   const html = renderToString(
     <Provider store={store}>
       <StaticRouter location={reducer.url} context={{}}>
@@ -71,7 +76,7 @@ const renderApp = (req, res) => {
     </Provider>
   );
 
-  res.send(setResponse(html)); // contenido de la pagina ya renderezado carga
+  res.send(setResponse(html, preloadedState)); // contenido de la pagina ya renderezado carga
 };
 
 app.get('*', renderApp);

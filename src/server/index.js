@@ -1,5 +1,5 @@
 /**
- * Punto inicio de Poryecto
+ * Punto inicio de Proyecto
  * Lado Backend
  */
 require('ignore-styles');//Obliga al servidor a ignorar los llamdos de estilos css
@@ -11,6 +11,6 @@ require('@babel/register')({
 require('asset-require-hook')({ //
   extensions: ['jpg', 'png', 'gif'],
   name: '/assets/[name].[ext]',
-});
+});// acceso a capeta assets
 
 require('./server');// Archivo de configuracion de Servicio HTTP
