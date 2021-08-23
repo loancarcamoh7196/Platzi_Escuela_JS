@@ -41,7 +41,7 @@ if (config.env === 'development') {
  * @returns String Texto completo a desplegar de la página
  */
 const setResponse = (html) =>{
-  return(`
+  return (`
   <!DOCTYPE html>
   <html>
     <head>
@@ -64,8 +64,8 @@ const setResponse = (html) =>{
 const renderApp = (req, res) => {
   const store = createStore(reducer, initialState);
   const html = renderToString(
-    <Provider>
-      <StaticRouter location={store} context={{}}>
+    <Provider store={store}>
+      <StaticRouter location={reducer.url} context={{}}>
         {renderRoutes(serverRoutes)}
       </StaticRouter>
     </Provider>
@@ -74,12 +74,8 @@ const renderApp = (req, res) => {
   res.send(setResponse(html)); // contenido de la pagina ya renderezado carga
 }
 
-app.get('*', (req, res) => {
-  res.send(`
- 
-  `);
-});
+app.get('*', renderApp);
 
 app.listen(config.port, (err) => {
-  (err) ? console.log('ERROR: ', err) : console.log(`Server corriendo en puerto ${config.port} ...`);
+  (err) ? console.log('ERROR: ', err) : console.log(`Server corriendo en puerto http://127.0.0.1:${config.port} ...`);
 });
