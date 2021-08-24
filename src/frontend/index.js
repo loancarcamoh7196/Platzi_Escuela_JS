@@ -15,7 +15,6 @@ import reducer from './reducers';
  */
 import App from './routes/App'; //<-- Contenedor Principal
 
-
 const history = createBrowserHistory();
 const preloadedState = window.__PRELOADED_STATE__; // Carga de Datos movies
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose ;

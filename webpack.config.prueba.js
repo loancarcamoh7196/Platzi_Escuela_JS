@@ -1,24 +1,20 @@
+/**
+ * Archivo de configuracion Webpack modo Producción
+ */
 const path = require('path');
-const Webpack = require('webpack');
+const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { config } = require('./config'); // Archivo de Variables de Entorno
-
-const isDev = (config.env === 'development');
-const entry = ['./src/frontend/index.js'];
-
-if (isDev) {
-  entry.push('webpack-hot-middleware/client?path=/__webpack_hmr&timeout=2000&reload=true');
-}
 
 module.exports = {
-  entry,
-  mode: config.env,
+  entry: [
+    'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=2000&reload=true', // Path de Server Render
+  ],
+  mode: 'production',
   output: {
-    path: path.resolve(__dirname, 'src/server/public'), // ruta donde estar archivo de publicación
+    path: path.resolve(__dirname, 'src/server/public/'),
     filename: 'assets/app.js',
     publicPath: '/',
     assetModuleFilename: 'assets/[name][ext]',
-    clean: true,
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -70,7 +66,6 @@ module.exports = {
     historyApiFallback: true,
   },
   plugins: [
-    isDev ? new Webpack.HotModuleReplacementPlugin(): () => { },
     new MiniCssExtractPlugin({
       filename: 'assets/app.css',
     }),

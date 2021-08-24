@@ -4,6 +4,7 @@
  */
 import express from 'express';
 import webpack from 'webpack';// Modele Bundler
+import helmet from 'helmet';
 import React from 'react';
 import { renderToString } from 'react-dom/server'; // Renderiza las respuesta dell server a String
 import { Provider } from 'react-redux';
@@ -14,14 +15,13 @@ import reducer from '../frontend/reducers';
 import serverRoutes from '../frontend/routes/serverRoutes';// Array de Rutas
 import initialState from '../frontend/initialState'; // Archivo mocks con Data
 
-
 const { config } = require('../../config');// Archivo de config de Variables de Entorno
 
 const app = express();
 
 if (config.env === 'development') {
   console.log('DEV MODE');
-  const webpackConfig = require('../../webpack.config');
+  const webpackConfig = require('../../webpack.config.prueba');
   const webpackDevMiddleware = require('webpack-dev-middleware');
   const webpackHotMiddleware = require('webpack-hot-middleware');
   const compiler = webpack(webpackConfig);
@@ -33,6 +33,11 @@ if (config.env === 'development') {
   app.use(webpackHotMiddleware(compiler));
 } else if (config.env === 'production') {
   console.log('PRODUCTION MODE');
+
+  app.use(express.static(`${__dirname}/public`));
+  app.use(helmet({ contentSecurityPolicy: false }));
+  app.disable('x-powered-by');
+  // app.disable('x-powered-by');
 }
 
 /**
