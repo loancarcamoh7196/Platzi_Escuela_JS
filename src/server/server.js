@@ -14,6 +14,7 @@ import { StaticRouter } from 'react-router-dom';
 import reducer from '../frontend/reducers';
 import serverRoutes from '../frontend/routes/serverRoutes';// Array de Rutas
 import initialState from '../frontend/initialState'; // Archivo mocks con Data
+import getManifest from './getManifest';
 
 const { config } = require('../../config');// Archivo de config de Variables de Entorno
 
@@ -34,6 +35,10 @@ if (config.env === 'development') {
 } else if (config.env === 'production') {
   console.log('PRODUCTION MODE');
 
+  app.use((req, res, next)=> {
+    if (!req.hashManifest) req.hashManifest = getManifest();
+    next();
+  });
   app.use(express.static(`${__dirname}/public`));
   app.use(helmet({ contentSecurityPolicy: false }));
   app.disable('x-powered-by');
@@ -46,12 +51,15 @@ if (config.env === 'development') {
  * @param {*} preloadedState Data a desplegar
  * @returns String Texto completo a desplegar de la página
  */
-const setResponse = (html, preloadedState) => {
+const setResponse = (html, preloadedState, manifest) => {
+  const mainStyles = manifest ? manifest['main.css'] : 'assets/app.css';
+  const mainBuild = manifest ? manifest['main.js'] : 'assets/app.js';
+
   return (`
     <!DOCTYPE html>
     <html>
       <head>
-        <link rel="stylesheet" href="assets/app.css" type="text/css">
+        <link rel="stylesheet" href="${mainStyles}" type="text/css">
         <title>Platzi Video</title>
       </head>
       <body>
@@ -59,7 +67,7 @@ const setResponse = (html, preloadedState) => {
         <script>
         window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g,'\\u003c')}
         </script>
-        <script src="assets/app.js" type="text/javascript"></script>
+        <script src="${mainBuild}" type="text/javascript"></script>
       </body>
     </html>
   `);
@@ -81,7 +89,7 @@ const renderApp = (req, res) => {
     </Provider>
   );
 
-  res.send(setResponse(html, preloadedState)); // contenido de la pagina ya renderezado carga
+  res.send(setResponse(html, preloadedState, req.hashManifest)); // contenido de la pagina ya renderezado carga
 };
 
 app.get('*', renderApp);

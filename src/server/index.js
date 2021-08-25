@@ -2,7 +2,7 @@
  * Punto inicio de Proyecto
  * Lado Backend
  */
-require('ignore-styles');//Obliga al servidor a ignorar los llamdos de estilos css
+require('ignore-styles');//Obliga al servidor a ignorar los llamados de estilos css
 
 require('@babel/register')({
   presets: ['@babel/preset-env', '@babel/preset-react'],

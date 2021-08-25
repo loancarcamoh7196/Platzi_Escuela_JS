@@ -1,8 +1,9 @@
 const path = require('path');
 const Webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CompressionWebpackPlugin = require('compression-webpack-plugin'); // Comprime 
-const TerserPlugin = require("terser-webpack-plugin");//Minimizer 
+const CompressionWebpackPlugin = require('compression-webpack-plugin'); // Comprimir
+const TerserPlugin = require('terser-webpack-plugin'); //Minimizer
+const { WebpackManifestPlugin } = require('webpack-manifest-plugin'); // Manifiesto
 const { config } = require('./config'); // Archivo de Variables de Entorno
 
 const isDev = (config.env === 'development');
@@ -17,7 +18,7 @@ module.exports = {
   mode: config.env,
   output: {
     path: path.resolve(__dirname, 'src/server/public'), // Ruta donde estar archivo de publicación
-    filename: 'assets/app.js',
+    filename: isDev ? 'assets/app.js' : 'assets/app-[hash].js', // Hash archivo
     publicPath: '/',
     assetModuleFilename: 'assets/[name][ext]',
     clean: true,
@@ -69,9 +70,8 @@ module.exports = {
     isDev ? () => { } : new CompressionWebpackPlugin({
       test: /.js$|.css$/, filename: '[path][base].gz',
     }),
-    new MiniCssExtractPlugin({
-      filename: 'assets/app.css',
-    }),
+    isDev ? () => { } : new WebpackManifestPlugin(),
+    new MiniCssExtractPlugin({ filename: isDev ? 'assets/app.css' : 'assets/app-[hash].css' }), // Hash archivo
   ],
   optimization: {
     minimize: true,
