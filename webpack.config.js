@@ -1,6 +1,8 @@
 const path = require('path');
 const Webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CompressionWebpackPlugin = require('compression-webpack-plugin'); // Comprime 
+const TerserPlugin = require("terser-webpack-plugin");//Minimizer 
 const { config } = require('./config'); // Archivo de Variables de Entorno
 
 const isDev = (config.env === 'development');
@@ -14,7 +16,7 @@ module.exports = {
   entry,
   mode: config.env,
   output: {
-    path: path.resolve(__dirname, 'src/server/public'), // ruta donde estar archivo de publicación
+    path: path.resolve(__dirname, 'src/server/public'), // Ruta donde estar archivo de publicación
     filename: 'assets/app.js',
     publicPath: '/',
     assetModuleFilename: 'assets/[name][ext]',
@@ -33,14 +35,6 @@ module.exports = {
         },
       },
       {
-        test: /\.html$/,
-        use: [
-          {
-            loader: 'html-loader',
-          },
-        ],
-      },
-      {
         test: /\.(s*)css$/,
         use: [
           { loader: MiniCssExtractPlugin.loader },
@@ -52,6 +46,7 @@ module.exports = {
       {
         test: /\.(png|gif|jpg|svg)$/i,
         type: 'asset/resource',
+        // options:{ name: 'assets/[hash].[ext]' },
       },
       {
         test: /\.svg$/,
@@ -70,9 +65,16 @@ module.exports = {
     historyApiFallback: true,
   },
   plugins: [
-    isDev ? new Webpack.HotModuleReplacementPlugin(): () => { },
+    isDev ? new Webpack.HotModuleReplacementPlugin() : () => { },
+    isDev ? () => { } : new CompressionWebpackPlugin({
+      test: /.js$|.css$/, filename: '[path][base].gz',
+    }),
     new MiniCssExtractPlugin({
       filename: 'assets/app.css',
     }),
   ],
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()],
+  },
 };
