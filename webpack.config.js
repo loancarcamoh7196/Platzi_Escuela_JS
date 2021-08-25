@@ -18,7 +18,7 @@ module.exports = {
   mode: config.env,
   output: {
     path: path.resolve(__dirname, 'src/server/public'), // Ruta donde estar archivo de publicación
-    filename: isDev ? 'assets/app.js' : 'assets/app-[hash].js', // Hash archivo
+    filename: isDev ? 'assets/app.js' : 'assets/app-[fullhash].js', // Hash archivo
     publicPath: '/',
     assetModuleFilename: 'assets/[name][ext]',
     clean: true,
@@ -71,10 +71,27 @@ module.exports = {
       test: /.js$|.css$/, filename: '[path][base].gz',
     }),
     isDev ? () => { } : new WebpackManifestPlugin(),
-    new MiniCssExtractPlugin({ filename: isDev ? 'assets/app.css' : 'assets/app-[hash].css' }), // Hash archivo
+    new MiniCssExtractPlugin({ filename: isDev ? 'assets/app.css' : 'assets/app-[fullhash].css' }), // Hash archivo
   ],
   optimization: {
     minimize: true,
     minimizer: [new TerserPlugin()],
+    splitChunks: {
+      chunks: 'async',
+      cacheGroups: {
+        vendors: {
+          name: 'vendors',
+          chunks: 'all',
+          reuseExistingChunk: true,
+          priority: 1,
+          filename: isDev ? 'assets/vendor.js' : 'assets/vendor-[contenthash].js',
+          enforce: true,
+          test(module, chunks) {
+            const name = module.nameForCondition && module.nameForCondition();
+            return chunks.name !== 'vendors' && /[\\/]node_modules[\\/]/.test(name);
+          },
+        },
+      },
+    },
   },
 };
