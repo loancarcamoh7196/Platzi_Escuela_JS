@@ -10,13 +10,10 @@ import '../assets/styles/components/Search.scss';
 const mainSearchTitle = '¿Que quieres ver hoy?';
 const mainSearchPlaceHolder = 'Buscar...';
 
-
 const Search = (props) => {
   const { isHome, getVideoSearch } = props;
 
-  const inputStyle = classNames('input', {
-    isHome
-  });
+  const inputStyle = classNames('input', { isHome });
 
   const handleInput = (event) => {
     getVideoSearch(event.target.value);
@@ -38,9 +35,7 @@ const Search = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  return {
-    searchResult: state.searchResult
-  };
+  return { searchResult: state.searchResult };
 };
 
 const mapDispatchToProps = {

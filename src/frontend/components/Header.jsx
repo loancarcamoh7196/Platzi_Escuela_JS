@@ -48,8 +48,7 @@ const Header = (props) => {
         <div className='header__menu--profile'>
           {
             Object.keys(user).length > 0 ?
-              <img src={gravatar(user.email)} alt={user.email} className='header__menu--gravitar' />
-              :
+              <img src={gravatar(user.email)} alt={user.email} className='header__menu--gravitar' /> :
               <img src={iconUser} alt={txtHeader.userLandingPageAlt} />
           }
           <p>{ txtHeader.menuTitle }</p>

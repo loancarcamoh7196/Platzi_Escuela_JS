@@ -13,9 +13,9 @@ const footerHelpCenterText = 'Centro de ayuda';
 
 const Footer = () => (
   <footer className='footer'>
-    <a href={footerEndTermsURL}> {footerEndTermsText} </a>
-    <a href={footerDeclarationPrivacityURL}> {footerDeclarationPrivacityText} </a>
-    <a href={footerHelpCenterURL}> {footerHelpCenterText} </a>
+    <a href={footerEndTermsURL}> { footerEndTermsText } </a>
+    <a href={footerDeclarationPrivacityURL}> { footerDeclarationPrivacityText } </a>
+    <a href={footerHelpCenterURL}> { footerHelpCenterText } </a>
   </footer>
 );
 

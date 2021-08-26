@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CompressionWebpackPlugin = require('compression-webpack-plugin'); // Comprimir
 const TerserPlugin = require('terser-webpack-plugin'); //Minimizer
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin'); // Manifiesto
+const ESLintPlugin = require('eslint-webpack-plugin'); // Webpack ESLint
 const { config } = require('./config'); // Archivo de Variables de Entorno
 
 const isDev = (config.env === 'development');
@@ -28,6 +29,12 @@ module.exports = {
   },
   module: {
     rules: [
+      // {
+      //   enforce: 'pre',
+      //   test: /\.(js|jsx)$/,
+      //   exclude: /node_modules/,
+      //   loader: 'eslint-loader'
+      // },
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
@@ -66,6 +73,7 @@ module.exports = {
     historyApiFallback: true,
   },
   plugins: [
+    isDev ? () => { } : new ESLintPlugin(),
     isDev ? new Webpack.HotModuleReplacementPlugin() : () => { },
     isDev ? () => { } : new CompressionWebpackPlugin({
       test: /.js$|.css$/, filename: '[path][base].gz',

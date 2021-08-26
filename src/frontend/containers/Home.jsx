@@ -33,26 +33,17 @@ const Home = (props) => {
   // const lists = [witcher, papel, trends, originals];
   const categories = ['Mis Favoritos', 'The Witcher', 'La Casa de Papel', 'Tendencias', 'Originales'];
 
-
   return (
     <>
       <Header />
       <Search isHome />
 
-      <Categories title="Resultados">
-
-      </Categories>
+      <Categories title='Resultados' />
 
       <Categories title={categories[0]}>
         <Carousel>
           {myList?.map((item) => {
-            return (
-              <CarouselItem
-                key={item.id}
-                {...item}
-                isList
-              />
-            );
+            return (<CarouselItem key={item.id} {...item} isList />);
           })}
         </Carousel>
       </Categories>

@@ -41,24 +41,24 @@ const reducer = (state, action) => {
       return {
         ...state,
         playing: (
-          state.witcher.find((item) => item.id === String(action.payload))
-          || state.papel.find((item) => item.id === String(action.payload))
-          || state.trends.find((item) => item.id === String(action.payload))
-          || state.originals.find((item) => item.id === String(action.payload))
-          || []
-        )
+          state.witcher.find((item) => item.id === String(action.payload)) ||
+          state.papel.find((item) => item.id === String(action.payload)) ||
+          state.trends.find((item) => item.id === String(action.payload)) ||
+          state.originals.find((item) => item.id === String(action.payload)) ||
+          []
+        ),
       };
     case actions.getVideoSearch:
       return {
         ...state,
         searchResult: (
-          state.witcher.find((item) => item.title === String(action.payload))
-          || state.papel.find((item) => item.title === String(action.payload))
-          || state.trends.find((item) => item.title === String(action.payload))
-          || state.originals.find((item) => item.title === String(action.payload))
-          || []
-        )
-      }
+          state.witcher.find((item) => item.title === String(action.payload)) ||
+          state.papel.find((item) => item.title === String(action.payload)) ||
+          state.trends.find((item) => item.title === String(action.payload)) ||
+          state.originals.find((item) => item.title === String(action.payload)) ||
+          []
+        ),
+      };
     default:
       return state;
   }

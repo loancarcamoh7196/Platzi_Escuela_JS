@@ -7,7 +7,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, compose } from 'redux';
 import { Router } from 'react-router'; // Agregar React-Router
-import {createBrowserHistory } from 'history'; //Agregar History -maneja session
+import { createBrowserHistory } from 'history'; //Agregar History -maneja session
 import reducer from './reducers';
 
 /***
@@ -29,7 +29,7 @@ ReactDOM.hydrate(
       <App />
     </Router>
   </Provider>,
-  document.getElementById('app')
+  document.getElementById('app'),
 );
 if (module.hot) {
   module.hot.accept();

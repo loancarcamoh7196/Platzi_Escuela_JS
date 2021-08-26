@@ -4,11 +4,12 @@ import { getVideoSource } from '../actions';
 
 import '../assets/styles/components/Player.scss';
 
-import NotFound from '../containers/NotFound';
+import NotFound from './NotFound';
 
 const Player = (props) => {
   const { id } = props.match.params;
-  const hasPlaying = Object.keys(props.playing).length > 0;
+  const { playing } = props;
+  const hasPlaying = Object.keys(playing).length > 0;
 
   useLayoutEffect(() => {
     props.getVideoSource(id);
@@ -17,10 +18,10 @@ const Player = (props) => {
   return hasPlaying ? (
     <div className='Player'>
       <video controls autoPlay className='video'>
-        <source src={props.playing.source} type='video/mp4' />
+        <source src={playing.source} type='video/mp4' />
       </video>
       <div className='Player-back'>
-        <button type='button' onClick={()=> props.history.goBack()}>Regresar</button>
+        <button type='button' onClick={() => props.history.goBack()}>Regresar</button>
       </div>
     </div>
   ) : <NotFound />;
@@ -33,7 +34,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = {
-  getVideoSource
+  getVideoSource,
 };
 // export default Player;
 export default connect(mapStateToProps, mapDispatchToProps)(Player);

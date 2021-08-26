@@ -36,7 +36,7 @@ const CarouselIteam = (props) => {
   };
 
   const handleDeleteFavorite = () => {
-    props.deleteFavorite(id)
+    props.deleteFavorite(id);
   };
 
   return (
